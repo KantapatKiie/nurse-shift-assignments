@@ -2,6 +2,7 @@
 
 ## ER Diagram Description
 
+
 ### ตาราง users
 - **วัตถุประสงค์**: เก็บข้อมูลผู้ใช้ในระบบ (พยาบาลและหัวหน้าพยาบาล)
 - **Key Fields**:
@@ -42,3 +43,47 @@
 - JWT token สำหรับ authentication
 - Role-based access control
 - Foreign key constraints เพื่อ data integrity
+
+
+## ER Diagram (Textual Representation)
+
+[users] 
+  id (PK)
+  name
+  email
+  password
+  role
+  created_at
+  updated_at
+
+    1
+    |
+    | creates
+    |
+    N
+[shifts]
+  id (PK)
+  date
+  start_time
+  end_time
+  created_by (FK users.id)
+  created_at
+  updated_at
+
+[shift_assignments]
+  id (PK)
+  user_id (FK users.id)
+  shift_id (FK shifts.id)
+  assigned_by (FK users.id)
+  created_at
+  updated_at
+
+[leave_requests]
+  id (PK)
+  shift_assignment_id (FK shift_assignments.id)
+  reason
+  status
+  approved_by (FK users.id)
+  approved_at
+  created_at
+  updated_at
