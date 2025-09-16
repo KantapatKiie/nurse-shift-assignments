@@ -10,14 +10,16 @@ Complete nursing shift management system with web interface and mobile app.
 
 ## Quick Start
 ```bash
+
+# Setup database
+./setup-database.sh
+
 # Start all services
 ./start-all.sh
 
 # Stop all services  
 ./stop-all.sh
 
-# Setup database
-./setup-database.sh
 ```
 
 ## Project Structure
